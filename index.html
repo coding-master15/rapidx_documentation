@@ -1357,10 +1357,14 @@ service cloud.firestore {
                 </table>
                 
                 <h3>Firebase Authentication</h3>
-                <p>Enable these authentication methods in Firebase Console:</p>
+                <p>Enable these authentication methods in Firebase Console → Authentication → Sign-in method:</p>
                 <ul>
                     <li>Phone Authentication</li>
+                    <li><strong>Google</strong> — rider app only. Add your app's SHA-1/SHA-256 fingerprints under Firebase Console → Project settings, then re-download <code>google-services.json</code> / <code>GoogleService-Info.plist</code> so the OAuth client is populated.</li>
+                    <li><strong>Facebook</strong> — rider app only. Create an app at <a href="https://developers.facebook.com" target="_blank" rel="noopener noreferrer">developers.facebook.com</a>, then set the App ID + Client Token in <code>cc_taxi/lib/data/social_auth_config.dart</code>, <code>android/app/src/main/res/values/strings.xml</code>, and <code>ios/Runner/Info.plist</code> (all three must match).</li>
+                    <li><strong>Apple</strong> — rider app only, iOS build. Enable the "Sign in with Apple" capability for the app's bundle ID in your Apple Developer account — the entitlement itself already ships in <code>Runner.entitlements</code>.</li>
                 </ul>
+                <p>Google, Facebook, and Apple sign-in are wired into the rider app (<code>cc_taxi</code>) only — the driver app signs in with phone only.</p>
             </section>
             
             <!--
