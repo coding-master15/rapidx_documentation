@@ -232,10 +232,14 @@
           </div>
           <h2>Your computer (mobile apps)</h2>
           <ul>
-            <li>Flutter SDK 3.0+ (3.3+ recommended)</li>
+            <li><strong>Flutter SDK 3.38.10</strong> (required — use this exact version for the rider, driver, and restaurant apps)</li>
             <li><strong>Android:</strong> Android Studio, JDK 11+, min SDK 21</li>
             <li><strong>iOS:</strong> Mac with Xcode 13+, CocoaPods, macOS 11+</li>
           </ul>
+          <div class="hint">
+            <div class="hint-icon">ℹ️</div>
+            <p>Check your version with <code>flutter --version</code>. If you use <a href="https://fvm.app" target="_blank" rel="noopener">FVM</a>, run <code>fvm install 3.38.10</code> and <code>fvm use 3.38.10</code> in each app folder.</p>
+          </div>
         </article>
 
         <article class="page" id="installation">
@@ -249,7 +253,8 @@
             <div class="step">
               <div>
                 <h4>Upload the backend</h4>
-                <p>Upload the <code>cc-taxi-backend</code> folder to your server. Point the domain (or subdomain) document root at <code>cc-taxi-backend/public</code>.</p>
+                <p>Open the <code>cc-taxi-backend</code> folder from your download and upload <strong>its contents</strong> to your server — <code>artisan</code>, <code>app</code>, <code>public</code>, and the rest. Do not upload the <code>cc-taxi-backend</code> folder itself.</p>
+                <p>Point the domain (or subdomain) document root at the <code>public</code> folder on the server.</p>
               </div>
             </div>
             <div class="step">
@@ -566,12 +571,14 @@ php artisan view:clear</code></pre>
           <h1 class="page-title">Getting started</h1>
           <p class="page-desc">Install Flutter, open each app folder, and get packages — then connect the backend.</p>
           <h2>1. System requirements</h2>
-          <p>Follow Flutter’s official install for your computer:</p>
+          <p>Install <strong>Flutter 3.38.10</strong> before opening any app project. Other Flutter versions may fail to resolve dependencies or build.</p>
+          <p>Follow Flutter’s official install for your computer, then switch to 3.38.10:</p>
           <ul>
             <li><a href="https://docs.flutter.dev/get-started/install/macos" target="_blank" rel="noopener">macOS</a></li>
             <li><a href="https://docs.flutter.dev/get-started/install/windows" target="_blank" rel="noopener">Windows</a></li>
             <li><a href="https://docs.flutter.dev/get-started/install/linux" target="_blank" rel="noopener">Linux</a></li>
           </ul>
+          <pre><code>flutter --version   # must show Flutter 3.38.10</code></pre>
           <p>Android Studio or VS Code both work. See Flutter’s <a href="https://docs.flutter.dev/get-started/editor" target="_blank" rel="noopener">editor setup</a>.</p>
           <h2>2. Open the projects</h2>
           <p>There are three apps. Open each folder separately:</p>
@@ -607,7 +614,7 @@ php artisan view:clear</code></pre>
               <tr><td>Restaurant</td><td><code>cc_restaruant/lib/data/config.dart</code></td></tr>
             </tbody>
           </table>
-          <p>On the server, <code>cc-taxi-backend/.env</code> must match:</p>
+          <p>On the server, <code>.env</code> in the backend root must match:</p>
           <pre><code>APP_URL=https://your-domain.com</code></pre>
           <div class="hint">
             <div class="hint-icon">ℹ️</div>
