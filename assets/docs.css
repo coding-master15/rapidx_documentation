@@ -23,6 +23,7 @@
   --danger-bg: #fef2f2;
   --danger-border: #ef4444;
   --header-h: 64px;
+  --chrome-h: 108px;
   --sidebar-w: 272px;
   --outline-w: 220px;
   --content-w: 720px;
@@ -54,11 +55,45 @@ img { max-width: 100%; height: auto; }
   flex-direction: column;
 }
 
-/* Header */
-.header {
+/* Pinned contact banner + header */
+.chrome {
   position: sticky;
   top: 0;
   z-index: 40;
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.pin-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 16px;
+  background: #0f766e;
+  color: #fff;
+  text-align: center;
+}
+.pin-banner p {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+.pin-banner a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+.pin-banner a:hover { color: #ccfbf1; }
+.pin-sep {
+  margin: 0 8px;
+  opacity: .55;
+  font-weight: 400;
+}
+.header {
   height: var(--header-h);
   display: flex;
   align-items: center;
@@ -174,8 +209,8 @@ img { max-width: 100%; height: auto; }
 /* Sidebar */
 .sidebar {
   position: sticky;
-  top: var(--header-h);
-  height: calc(100vh - var(--header-h));
+  top: var(--chrome-h);
+  height: calc(100vh - var(--chrome-h));
   overflow: auto;
   background: var(--sidebar);
   border-right: 1px solid var(--border);
@@ -474,8 +509,8 @@ tr:last-child td { border-bottom: 0; }
 /* Outline */
 .outline {
   position: sticky;
-  top: var(--header-h);
-  height: calc(100vh - var(--header-h));
+  top: var(--chrome-h);
+  height: calc(100vh - var(--chrome-h));
   overflow: auto;
   padding: 28px 18px 40px 8px;
   border-left: 1px solid var(--border);
@@ -543,6 +578,7 @@ tr:last-child td { border-bottom: 0; }
   .header-search { display: block; flex: 1; max-width: none; }
   .header-actions .header-link { display: none; }
   .header-actions .btn-primary { display: none; }
+  .pin-banner p { font-size: 12.5px; }
   .main { padding: 24px 18px 64px; }
   .cards, .shot-grid, .pager { grid-template-columns: 1fr; }
   .page-title { font-size: 26px; }

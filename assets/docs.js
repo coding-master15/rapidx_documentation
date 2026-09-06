@@ -112,6 +112,15 @@
     if (searchEmpty) searchEmpty.style.display = visible ? "none" : "block";
   });
 
+  function syncChromeHeight() {
+    const chrome = document.querySelector(".chrome");
+    if (chrome) {
+      document.documentElement.style.setProperty("--chrome-h", chrome.offsetHeight + "px");
+    }
+  }
+  syncChromeHeight();
+  window.addEventListener("resize", syncChromeHeight);
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "/" && document.activeElement?.tagName !== "INPUT") {
       e.preventDefault();
